@@ -9,6 +9,6 @@ exports.lambdaHandler = async (event: APIGatewayProxyEvent) => {
   console.log(event)
   return {
     statusCode: 200,
-    body: `Queries22opol: ${queries}`
+    body: `hellop: ${queries}`
   }
 };
