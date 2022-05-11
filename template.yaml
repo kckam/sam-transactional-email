@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  aftersales-transactional-email
+Globals:
+  Function:
+    Timeout: 3
+    Tracing: Active
+
+Resources:
+  AftersalesTransactionalEmailFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: main/build/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        AftersalesTransactionalEmail:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /
+            Method: get
+
+Outputs:
+  AftersalesTransactionalEmailApi:
+    Description: "API Gateway endpoint URL for Prod stage for Aftersales Transactional Email function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+  AftersalesTransactionalEmailFunction:
+    Description: "Aftersales Transactional Email Lambda Function ARN"
+    Value: !GetAtt AftersalesTransactionalEmailFunction.Arn
+  AftersalesTransactionalEmailFunctionIamRole:
+    Description: "Implicit IAM Role created for Aftersales Transactional Email function"
+    Value: !GetAtt AftersalesTransactionalEmailFunctionRole.Arn
