@@ -27,4 +27,4 @@ jobs:
       - name: SAM build
         run: sam build
       - name: SAM deploy
-        run: sam deploy --guided
+        run: sam deploy
