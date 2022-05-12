@@ -23,6 +23,8 @@ jobs:
       - run: cd main && npm install
       - name: Compile Ts to Js
         run: cd main && npm run compile
+      - name: copy templates
+        run: cp /main/src/data/templates/* /main/build/data/templates
       - name: SAM build
         run: sam build
       - name: SAM deploy
