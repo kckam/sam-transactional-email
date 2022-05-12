@@ -29,6 +29,9 @@ Resources:
             Path: "/{proxy+}"
             Method: ANY
 
+       Policies:
+        - AmazonSESFullAccess
+
       # Events:
       #   AftersalesTransactionalEmail:
 
