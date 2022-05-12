@@ -49,7 +49,7 @@ export default class EmailController {
     try {
       const HtmlPart = await (
         await fs.readFile(
-          `./data/templates/${store.name}/${store.templates[lang][templateId].TemplateName}.html`
+          `./build/data/templates/${store.name}/${store.templates[lang][templateId].TemplateName}.html`
         )
       ).toString();
 
