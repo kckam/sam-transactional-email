@@ -29,7 +29,7 @@ Resources:
             Path: "/{proxy+}"
             Method: ANY
 
-       Policies:
+      Policies:
         - AmazonSESFullAccess
 
       # Events:
